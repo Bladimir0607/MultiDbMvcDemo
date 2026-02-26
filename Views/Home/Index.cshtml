@@ -1,0 +1,41 @@
+﻿@model MultiDbMvcDemo.Models.PedidoDetalleViewModel
+
+<h2>Pedidos (SQL Server)</h2>
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Cliente</th>
+        <th>Fecha</th>
+    </tr>
+    @foreach (var pedido in Model.Pedidos)
+    {
+        <tr>
+            <td>@pedido.Id</td>
+            <td>@pedido.ClienteNombre</td>
+            <td>@pedido.Fecha</td>
+        </tr>
+    }
+</table>
+
+<hr />
+
+<h2>Detalles (MySQL)</h2>
+
+<table border="1">
+    <tr>
+        <th>PedidoId</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+    </tr>
+    @foreach (var detalle in Model.Detalles)
+    {
+        <tr>
+            <td>@detalle.PedidoId</td>
+            <td>@detalle.Producto</td>
+            <td>@detalle.Cantidad</td>
+            <td>@detalle.Precio</td>
+        </tr>
+    }
+</table>
